@@ -1,17 +1,25 @@
+---
+layout: default
+description: Git documentation
+keywords: Wayne, Teutenberg, Git, Git for Windows, Documentation
+title: Gitty
+---
 
-Configure Git user values:
-```
+<body>
+  <b>Configure Git user values</b>
+<pre><code>
 git config --global user.name "Firstname Lastname"
 git config --global user.email "email@address.co.nz"
-```
+</pre></code>
 
-If your Git server is using a self-sign cert:
-```
+  <b>If your Git server is using a self-sign cert</b>
+<pre><code>
 git config --global http.sslVerify false
-```
+</pre></code>
 
-If you need to connect to GitHub from behind a proxy:
-```
+  <b>If you need to connect to GitHub from behind a proxy</b>
+<pre><code>
 git config --global http.https://github.com.proxy "http://proxy.bnz.co.nz:10568"
 git config --global https.https://github.com.proxy "https://proxy.bnz.co.nz:10568"
-```
+</pre></code>
+</body>
