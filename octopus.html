@@ -1,21 +1,20 @@
-
-# Visual Studio Post Build Event Package Upload 
-
-1. In visual Studio open the "Configuration Manager".
-2. Add new "Active solution configuration" >
-3. Copy settings from "Release" >
-4. Tick "Create new project configurations"
-5. Create Push2Octopus.ps1 <see code below>
-6. Create file "C:\OctopusApiKey.secret" and save your API key here. 'https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key'
-6. Add Post build event <see command below>
-7. Set configuration to "Octopus" and build solution. 
-
-When building the solution using the "Octopus" configuration, 
-the database dacpac will be compressed into a zip file and uploaded to your Octopus package repository. 
-
-
-Push2Octopus.ps1
-```
+<body>
+  <h2>Visual Studio Post Build Event Package Upload</h2>
+  <ol>
+      <li>In visual Studio open the "Configuration Manager".</li>
+      <li>Add new "Active solution configuration"</li>
+      <li>Copy settings from "Release"</li>
+      <li>Tick "Create new project configurations"</li>
+      <li>Create Push2Octopus.ps1 <see code below></li>
+      <li>Create file "C:\OctopusApiKey.secret" and save your API key here. 'https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key'</li>
+      <li>Add Post build event <see command below></li>
+      <li>Set configuration to "Octopus" and build solution. </li>
+  </ol>
+  <p>When building the solution using the "Octopus" configuration, 
+      the database dacpac will be compressed into a zip file and uploaded to your Octopus package repository.</p>
+    
+  <h2>Push2Octopus.ps1</h2>
+<pre><code>
 PARAM(
     [string]$ReleaseName = 'MyRelease',
     [string]$ReleaseVersion = $(Get-Date -Format 'yyyy.mm.dd.hhmmss'),
@@ -77,10 +76,10 @@ $packageFileStream.Dispose();
 $webResponse = $webRequest.GetResponse();
 Write-Host $webResponse.StatusCode $webResponse.StatusDescription;  
 $webResponse.Dispose();
-```
+</pre></code>
 
-Post-build event command line:
-```
+  <h2>Post-build event command line:</h2>
+<pre><code>
 PowerShell.exe 
   -NoProfile 
   -ExecutionPolicy unrestricted 
@@ -89,4 +88,5 @@ PowerShell.exe
   -ReleaseFiles "$(ProjectDir)$(OutputPath)$(TargetName).dacpac" 
   -OutputPath $(ProjectDir)$(OutputPath) 
   -Configuration $(Configuration)
-```
+</pre></code>
+</body>
