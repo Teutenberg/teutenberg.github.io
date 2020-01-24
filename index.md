@@ -9,8 +9,15 @@ skip_read_time: true
 ---
 {% assign page.title = site.name %}
 
-## Hello Wayne's World
+# Hello Wayne's World
 
 I am making a github page to document stuff...
 
+## General
 [Git](git.md)
+
+## SQL Server
+
+
+## Octopus Deploy 
+[Octopus](octopus.md)
