@@ -12,3 +12,5 @@ skip_read_time: true
 ## Hello Wayne's World
 
 I am making a github page to document stuff...
+
+[Git](git.md)
