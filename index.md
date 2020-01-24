@@ -7,7 +7,6 @@ notoc: true
 notags: true
 skip_read_time: true
 ---
-{% assign page.title = site.name %}
 
 # Hello Wayne's World
 
