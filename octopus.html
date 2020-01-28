@@ -87,13 +87,14 @@ $webResponse.Dispose();
 
   <h2>Post-build event command line:</h2>
 <pre><code>
-PowerShell.exe 
-  -NoProfile 
+CD "$(ProjectDir)"
+
+PowerShell.exe -NoProfile 
   -ExecutionPolicy unrestricted 
   -file "$(SolutionDir)Push2Octopus.ps1" 
-  -ReleaseName $(TargetName)
-  -ReleaseFiles "$(ProjectDir)$(OutputPath)$(TargetName).dacpac" 
-  -OutputPath $(ProjectDir)$(OutputPath) 
-  -Configuration $(Configuration)
+  -Configuration "$(Configuration)" 
+  -ReleaseName "$(TargetName)" 
+  -ReleaseFiles "$(OutputPath)$(TargetName).dacpac" 
+  -OutputPath "$(OutputPath)\"
 </pre></code>
 </body>
